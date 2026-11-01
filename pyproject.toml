@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leakscan"
+version = "1.0.0"
+description = "Secret and credential leak scanner. High-precision credential patterns, entropy gating, redacted output and SARIF for CI. Zero dependencies."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Samarpan Aree" }]
+keywords = ["security", "secrets", "credentials", "secret-scanning", "sarif", "devsecops", "cli"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+leakscan = "leakscan.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/samarpan-aree/leakscan"
+Issues = "https://github.com/samarpan-aree/leakscan/issues"
+
+[tool.setuptools]
+packages = ["leakscan"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
